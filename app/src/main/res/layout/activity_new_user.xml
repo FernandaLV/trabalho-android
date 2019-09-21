@@ -30,8 +30,8 @@
             android:hint="@string/label_name"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
-            android:textColor="@color/text_color_primary"
-            android:textColorHint="@color/text_color_primary"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent"
             tools:layout_editor_absoluteX="20dp"
             tools:layout_editor_absoluteY="176dp" />
 
@@ -44,8 +44,8 @@
             android:hint="@string/label_email"
             android:importantForAutofill="no"
             android:inputType="textPersonName|textEmailAddress"
-            android:textColor="@color/text_color_primary"
-            android:textColorHint="@color/text_color_primary"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent"
             tools:layout_editor_absoluteX="20dp"
             tools:layout_editor_absoluteY="176dp" />
 
@@ -58,8 +58,8 @@
             android:hint="@string/label_password"
             android:importantForAutofill="no"
             android:inputType="textPassword"
-            android:textColor="@color/text_color_primary"
-            android:textColorHint="@color/text_color_primary"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent"
             tools:layout_editor_absoluteX="20dp"
             tools:layout_editor_absoluteY="237dp" />
 
