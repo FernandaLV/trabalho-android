@@ -44,4 +44,5 @@ dependencies {
 
     //Biblioteca para adicionar animacoes no projeto
     implementation 'com.airbnb.android:lottie:3.0.7'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }
