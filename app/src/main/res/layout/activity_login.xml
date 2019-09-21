@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppTheme"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    tools:context=".login.LoginActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_login"
+        tools:layout_editor_absoluteX="153dp"
+        tools:layout_editor_absoluteY="56dp" />
+
+    <EditText
+        android:id="@+id/inputUser"
+        style="@style/Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/label_user"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textColor="@color/text_color_primary"
+        android:textColorHint="@color/text_color_primary"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="176dp" />
+
+    <EditText
+        android:id="@+id/inputPassword"
+        style="@style/Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/label_password"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        android:textColor="@color/text_color_primary"
+        android:textColorHint="@color/text_color_primary"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="237dp" />
+
+    <Button
+        android:id="@+id/btnCreate"
+        style="@style/Buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_login"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="338dp" />
+
+    <Button
+        android:id="@+id/btnNewUser"
+        style="@style/Buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_new_user"
+        tools:layout_editor_absoluteX="152dp"
+        tools:layout_editor_absoluteY="441dp" />
+
+</LinearLayout>

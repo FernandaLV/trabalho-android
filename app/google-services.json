@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1057203118810",
+    "firebase_url": "https://trabalho-final-636fb.firebaseio.com",
+    "project_id": "trabalho-final-636fb",
+    "storage_bucket": "trabalho-final-636fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057203118810:android:e9e97a07c4bfec2c4efbe3",
+        "android_client_info": {
+          "package_name": "br.com.fernandavedovello.trabalhofinal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057203118810-r5o59kksijlomllbdgpeierur9ja2892.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.fernandavedovello.trabalhofinal",
+            "certificate_hash": "e97186278bcac0d9b666c6bc06851c5df8deca1a"
+          }
+        },
+        {
+          "client_id": "1057203118810-d8i782n1g79qj7gvrojs1rqt4i90ef5g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzQYyaWJCYMogXM-uoaFuPX-jiC4gJhao"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1057203118810-d8i782n1g79qj7gvrojs1rqt4i90ef5g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
