@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_new_book.*
 import kotlinx.android.synthetic.main.activity_new_user.btnCreate
+import kotlinx.android.synthetic.main.book_form.*
 
 class NewBookActivity : AppCompatActivity() {
 
@@ -28,13 +29,12 @@ class NewBookActivity : AppCompatActivity() {
     }
 
     private fun saveInRealTimeDatabase(){
-        var book = Book(
-            inputTitle.text.toString()
+        val book = Book(
+            inputTitle.text.toString(),
+            inputAuthor.text.toString(),
+            Integer.parseInt(inputNumberPages.text.toString()),
+            Integer.parseInt(inputNumberPagesRead.text.toString())
         )
-
-        var key = FirebaseDatabase.getInstance().getReference("Books").key
-
-
 
         FirebaseDatabase.getInstance().getReference("Books")
             .child(FirebaseAuth.getInstance().currentUser!!.uid)
