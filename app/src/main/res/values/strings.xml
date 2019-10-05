@@ -11,4 +11,6 @@
     <string name="label_name">Nome</string>
     <string name="label_email">E-mail</string>
     <string name="logo">logo</string>
+
+    <string name="title">Title</string>
 </resources>

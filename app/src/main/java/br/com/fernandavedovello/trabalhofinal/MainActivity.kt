@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main2)
+        setContentView(R.layout.activity_main)
 
         fab.setOnClickListener {
             val intent = Intent(this@MainActivity, NewBookActivity::class.java)
@@ -57,7 +57,8 @@ class MainActivity : AppCompatActivity() {
         val firebaseRecyclerAdapter = object: FirebaseRecyclerAdapter<Book, BookViewHolder>(option) {
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
-                val itemView = LayoutInflater.from(this@MainActivity).inflate(R.layout.card_view,parent,false)
+                val itemView = LayoutInflater.from(this@MainActivity)
+                    .inflate(R.layout.card_view,parent,false)
                 return BookViewHolder(itemView)
             }
 
