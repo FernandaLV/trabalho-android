@@ -111,6 +111,27 @@ class EditBookActivity : AppCompatActivity() {
     }
 
     private fun deleteBook(){
-
+        FirebaseDatabase.getInstance().getReference(firebaseReferenceNode)
+            .child(userId)
+            .child(bookId)
+            .removeValue()
+            .addOnCompleteListener{
+                if(it.isSuccessful){
+                    Toast.makeText(
+                        this,
+                        "Livro removido com sucesso",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    val returnIntent = Intent()
+                    setResult(RESULT_OK,returnIntent)
+                    finish()
+                } else {
+                    Toast.makeText(
+                        this,
+                        "Erro ao remover o livro",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
     }
 }
