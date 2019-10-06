@@ -2,6 +2,7 @@
     <string name="app_name">Meus Livros</string>
     <string name="action_about">Sobre</string>
     <string name="action_list">Listagem</string>
+    <string name="action_logout">Sair</string>
 
     <string name="label_login">Login</string>
     <string name="label_user">Usuário</string>

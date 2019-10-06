@@ -12,6 +12,7 @@ import br.com.fernandavedovello.trabalhofinal.about.AboutActivity
 import br.com.fernandavedovello.trabalhofinal.book.EditBookActivity
 import br.com.fernandavedovello.trabalhofinal.book.NewBookActivity
 import br.com.fernandavedovello.trabalhofinal.model.Book
+import br.com.fernandavedovello.trabalhofinal.splash.SplashActivity
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -59,6 +60,16 @@ class MainActivity : AppCompatActivity() {
         R.id.action_about -> {
 
             val intent = Intent(this, AboutActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
+            finish()
+
+            true
+        }
+        R.id.action_logout -> {
+            FirebaseAuth.getInstance().signOut()
+
+            val intent = Intent(this, SplashActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
             finish()

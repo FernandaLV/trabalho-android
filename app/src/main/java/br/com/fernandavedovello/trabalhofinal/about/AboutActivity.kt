@@ -7,6 +7,8 @@ import android.view.Menu
 import android.view.MenuItem
 import br.com.fernandavedovello.trabalhofinal.MainActivity
 import br.com.fernandavedovello.trabalhofinal.R
+import br.com.fernandavedovello.trabalhofinal.splash.SplashActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class AboutActivity : AppCompatActivity() {
 
@@ -26,6 +28,16 @@ class AboutActivity : AppCompatActivity() {
         R.id.action_list -> {
 
             val intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
+            finish()
+
+            true
+        }
+        R.id.action_logout -> {
+            FirebaseAuth.getInstance().signOut()
+
+            val intent = Intent(this, SplashActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
             finish()
