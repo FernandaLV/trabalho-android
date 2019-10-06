@@ -10,6 +10,12 @@ class DatabaseUtil {
             firebaseDatabase.setPersistenceEnabled(true)
         }
         fun getDatabase() : FirebaseDatabase {
+
+            if (firebaseDatabase == null) {
+                val firebaseDatabase = FirebaseDatabase.getInstance()
+                firebaseDatabase.setPersistenceEnabled(true)
+            }
+
             return firebaseDatabase
         }
     }

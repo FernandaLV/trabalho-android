@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import br.com.fernandavedovello.trabalhofinal.book.EditBookActivity
 import br.com.fernandavedovello.trabalhofinal.book.NewBookActivity
 import br.com.fernandavedovello.trabalhofinal.model.Book
 import com.firebase.ui.database.FirebaseRecyclerAdapter
@@ -17,11 +18,13 @@ import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.card_view.view.*
 
 class MainActivity : AppCompatActivity() {
 
     companion object {
         const val newBookActivityRequestCode = 1
+        const val editBookActivityRequestCode = 2
     }
 
     private lateinit var mrecylerview : RecyclerView
@@ -67,12 +70,17 @@ class MainActivity : AppCompatActivity() {
 
                 ref.child(placeid).addValueEventListener(object: ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {
-                        Toast.makeText(this@MainActivity, "Error Occurred "+ p0.toException(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@MainActivity,
+                            "Error Occurred "+ p0.toException(),
+                            Toast.LENGTH_SHORT
+                        ).show()
 
                     }
 
                     override fun onDataChange(p0: DataSnapshot) {
                         holder.title.setText(model.title)
+                        holder.id.setText(placeid)
                     }
                 })
             }
@@ -81,8 +89,17 @@ class MainActivity : AppCompatActivity() {
         this.mrecylerview.adapter = firebaseRecyclerAdapter
         firebaseRecyclerAdapter.startListening()
     }
+
+    fun onClickBookItem(view: View){
+        val teste = view.bookTitle.text.toString()
+        val intent = Intent(this@MainActivity, EditBookActivity::class.java)
+            .putExtra("bookId", view.bookId.text.toString())
+        startActivityForResult(intent, editBookActivityRequestCode)
+    }
 }
 
 class BookViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    internal var title = itemView.findViewById<TextView>(R.id.textView)
+    internal var title = itemView.findViewById<TextView>(R.id.bookTitle)
+    internal var id = itemView.findViewById<TextView>(R.id.bookId)
 }
+

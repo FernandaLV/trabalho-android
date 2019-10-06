@@ -13,11 +13,14 @@
     <string name="logo">logo</string>
 
     <string name="title">Title</string>
+    <string name="id">Id</string>
+
     <string name="label_book_title">Título do livro</string>
     <string name="label_author_name">Autor</string>
     <string name="label_number_pages">Total de páginas</string>
     <string name="label_number_pages_read">Total de páginas lidas</string>
     <string name="btn_save_form">Salvar</string>
+    <string name="btn_edit_form">Atualizar</string>
 
 
 </resources>
