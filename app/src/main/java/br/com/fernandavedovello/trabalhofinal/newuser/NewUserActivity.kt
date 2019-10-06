@@ -21,21 +21,60 @@ class NewUserActivity : AppCompatActivity() {
         myAuth = FirebaseAuth.getInstance()
 
         btnCreate.setOnClickListener {
-            myAuth.createUserWithEmailAndPassword(
-                inputEmail.text.toString(),
-                inputPassword.text.toString()
-            ).addOnCompleteListener {
-                if (it.isSuccessful) {
-                    saveInRealTimeDatabase()
-                } else {
-                    Toast.makeText(
-                        this@NewUserActivity,
-                        it.exception?.message,
-                        Toast.LENGTH_SHORT
-                    ).show()
+
+            if(validateFormData()) {
+
+                myAuth.createUserWithEmailAndPassword(
+                    inputEmail.text.toString(),
+                    inputPassword.text.toString()
+                ).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        saveInRealTimeDatabase()
+                    } else {
+                        Toast.makeText(
+                            this@NewUserActivity,
+                            it.exception?.message,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             }
         }
+    }
+
+    private fun validateFormData() :Boolean {
+        val name = inputName.text.toString()
+        val email = inputEmail.text.toString()
+        val password = inputPassword.text.toString()
+
+        if (name == ""){
+            Toast.makeText(
+                this,
+                "Preencha o nome",
+                Toast.LENGTH_SHORT
+            ).show()
+            return false
+        }
+
+        if (email== ""){
+            Toast.makeText(
+                this,
+                "Preencha o e-mail",
+                Toast.LENGTH_SHORT
+            ).show()
+            return false
+        }
+
+        if (password== ""){
+            Toast.makeText(
+                this,
+                "Preencha a senha",
+                Toast.LENGTH_SHORT
+            ).show()
+            return false
+        }
+
+        return true
     }
 
     private fun saveInRealTimeDatabase(){
