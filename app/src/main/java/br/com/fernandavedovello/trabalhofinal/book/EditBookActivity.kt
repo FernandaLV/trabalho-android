@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.Toast
 import br.com.fernandavedovello.trabalhofinal.R
 import br.com.fernandavedovello.trabalhofinal.model.Book
-import br.com.fernandavedovello.trabalhofinal.utils.DatabaseUtil
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot

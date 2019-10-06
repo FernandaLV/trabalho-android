@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">Trabalho Final</string>
+    <string name="app_name">Meus Livros</string>
+    <string name="action_about">Sobre</string>
+    <string name="action_list">Listagem</string>
+
     <string name="label_login">Login</string>
     <string name="label_user">Usuário</string>
     <string name="label_password">Senha</string>
@@ -22,6 +25,9 @@
     <string name="btn_save_form">Salvar</string>
     <string name="btn_edit_form">Atualizar</string>
     <string name="btn_delete">Deletar</string>
+
+    <string name="developerName">Desenvolvido por: Fernanda Lembo Vedovello</string>
+    <string name="version">Versão: 1.0</string>
 
 
 </resources>

@@ -15,8 +15,13 @@
         <item name="android:layout_marginTop">30dp</item>
     </style>
 
-    <style name="Buttons" parent="Widget.AppCompat.Button.Colored">
+    <style name="About" >
         <item name="android:layout_marginTop">30dp</item>
+    </style>
+
+    <style name="Buttons" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
     </style>
 
     <style name="Title">
