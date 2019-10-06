@@ -49,6 +49,10 @@ class EditBookActivity : AppCompatActivity() {
             saveBook()
         }
 
+        btnDelete.setOnClickListener{
+            deleteBook()
+        }
+
     }
 
     private fun listenerFirebaseRealtime() {
@@ -104,5 +108,9 @@ class EditBookActivity : AppCompatActivity() {
                     ).show()
                 }
             }
+    }
+
+    private fun deleteBook(){
+
     }
 }

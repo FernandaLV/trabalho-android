@@ -21,6 +21,7 @@
     <string name="label_number_pages_read">Total de páginas lidas</string>
     <string name="btn_save_form">Salvar</string>
     <string name="btn_edit_form">Atualizar</string>
+    <string name="btn_delete">Deletar</string>
 
 
 </resources>
