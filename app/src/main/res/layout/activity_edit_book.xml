@@ -4,31 +4,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".book.EditBookActivity">
+    tools:context=".book.EditBookActivity"
+    style="@style/PersonaLayout">
+
+    <TextView
+        android:id="@+id/mainTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_book_title"
+        style="@style/Title"/>
 
     <include layout="@layout/book_form" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
 
         <Button
             android:id="@+id/btnEdit"
+            style="@style/Buttons"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
             android:text="@string/btn_edit_form" />
 
         <Button
             android:id="@+id/btnDelete"
+            style="@style/Buttons"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:background="@color/colorDanger"
+            android:backgroundTint="@color/colorDanger"
             android:text="@string/btn_delete"
             android:textColor="#ffffff" />
 

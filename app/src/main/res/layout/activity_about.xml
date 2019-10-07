@@ -24,7 +24,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/developerName" />
+        android:text="@string/developerName"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/version"
@@ -32,5 +33,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/version" />
+        android:text="@string/version"
+        android:textSize="18sp" />
 </LinearLayout>

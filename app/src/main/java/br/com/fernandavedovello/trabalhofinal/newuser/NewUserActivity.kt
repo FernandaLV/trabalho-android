@@ -3,6 +3,7 @@ package br.com.fernandavedovello.trabalhofinal.newuser
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.widget.Toast
 import br.com.fernandavedovello.trabalhofinal.R
 import br.com.fernandavedovello.trabalhofinal.model.User
@@ -43,34 +44,21 @@ class NewUserActivity : AppCompatActivity() {
     }
 
     private fun validateFormData() :Boolean {
-        val name = inputName.text.toString()
-        val email = inputEmail.text.toString()
-        val password = inputPassword.text.toString()
 
-        if (name == ""){
-            Toast.makeText(
-                this,
-                "Preencha o nome",
-                Toast.LENGTH_SHORT
-            ).show()
+        val strUserName = inputName.text.toString()
+        val strEmail = inputEmail.text.toString()
+        val strUserPassword = inputPassword.text.toString()
+
+        if (TextUtils.isEmpty(strUserName)) {
+            inputName.error = getString(R.string.input_empty)
             return false
         }
-
-        if (email== ""){
-            Toast.makeText(
-                this,
-                "Preencha o e-mail",
-                Toast.LENGTH_SHORT
-            ).show()
+        if (TextUtils.isEmpty(strEmail)) {
+            inputEmail.error = getString(R.string.input_empty)
             return false
         }
-
-        if (password== ""){
-            Toast.makeText(
-                this,
-                "Preencha a senha",
-                Toast.LENGTH_SHORT
-            ).show()
+        if (TextUtils.isEmpty(strUserPassword)) {
+            inputPassword.error = getString(R.string.input_empty)
             return false
         }
 
@@ -78,7 +66,7 @@ class NewUserActivity : AppCompatActivity() {
     }
 
     private fun saveInRealTimeDatabase(){
-        var user = User(
+        val user = User(
             inputName.text.toString(),
             inputEmail.text.toString()
         )
@@ -90,7 +78,7 @@ class NewUserActivity : AppCompatActivity() {
                 if(it.isSuccessful){
                     Toast.makeText(
                         this,
-                        "Usuário criado com sucesso",
+                        getText(R.string.success_save),
                         Toast.LENGTH_SHORT
                     ).show()
                     val returnIntent = Intent()
@@ -100,7 +88,7 @@ class NewUserActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(
                         this,
-                        "Erro ao criar o usuário",
+                        getText(R.string.fail_save),
                         Toast.LENGTH_SHORT
                     ).show()
                 }

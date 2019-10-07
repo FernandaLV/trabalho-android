@@ -9,7 +9,8 @@ import br.com.fernandavedovello.trabalhofinal.MainActivity
 import br.com.fernandavedovello.trabalhofinal.newuser.NewUserActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
-
+import android.text.TextUtils
+import br.com.fernandavedovello.trabalhofinal.R
 
 class LoginActivity : AppCompatActivity() {
 
@@ -19,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(br.com.fernandavedovello.trabalhofinal.R.layout.activity_login)
+        setContentView(R.layout.activity_login)
 
         // Initialize Firebase Auth
         myAuth = FirebaseAuth.getInstance()
@@ -33,18 +34,30 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btnCreate.setOnClickListener{
-            myAuth.signInWithEmailAndPassword(
-                inputUser.text.toString(),
-                inputPassword.text.toString()
-            ).addOnCompleteListener{
-                if(it.isSuccessful){
-                    goToHome()
-                } else {
-                    Toast.makeText(
-                        this@LoginActivity,
-                        it.exception?.message,
-                        Toast.LENGTH_SHORT
-                    ).show()
+
+            val strUserName = inputUser.text.toString()
+            val strUserPassword = inputPassword.text.toString()
+
+            if (TextUtils.isEmpty(strUserName)) {
+                inputUser.error = getString(R.string.input_empty)
+            }
+            else if (TextUtils.isEmpty(strUserPassword)) {
+                inputPassword.error = getString(R.string.input_empty)
+            }
+            else {
+                myAuth.signInWithEmailAndPassword(
+                    inputUser.text.toString(),
+                    inputPassword.text.toString()
+                ).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        goToHome()
+                    } else {
+                        Toast.makeText(
+                            this@LoginActivity,
+                            it.exception?.message,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             }
         }

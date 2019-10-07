@@ -3,6 +3,7 @@
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.widget.Toast
 import br.com.fernandavedovello.trabalhofinal.R
 import br.com.fernandavedovello.trabalhofinal.model.Book
@@ -45,7 +46,13 @@ class EditBookActivity : AppCompatActivity() {
         listenerFirebaseRealtime()
 
         btnEdit.setOnClickListener{
-            saveBook()
+            val strUserName = inputTitle.text.toString()
+            if (TextUtils.isEmpty(strUserName)) {
+                inputTitle.error = getString(R.string.input_empty)
+            }
+            else {
+                saveBook()
+            }
         }
 
         btnDelete.setOnClickListener{
@@ -78,12 +85,27 @@ class EditBookActivity : AppCompatActivity() {
     }
 
     private fun saveBook(){
+
+        val strNumberPages = inputNumberPages.text.toString()
+        val strNumberPagesRead = inputNumberPagesRead.text.toString()
+
+        val intNumberPages = when (TextUtils.isEmpty(strNumberPages)) {
+            true -> 0
+            false -> Integer.parseInt(strNumberPages)
+        }
+
+        val intNumberPagesRead = when (TextUtils.isEmpty(strNumberPagesRead)) {
+            true -> 0
+            false -> Integer.parseInt(strNumberPagesRead)
+        }
+
         val book = Book(
             inputTitle.text.toString(),
             inputAuthor.text.toString(),
-            Integer.parseInt(inputNumberPages.text.toString()),
-            Integer.parseInt(inputNumberPagesRead.text.toString())
+            intNumberPages,
+            intNumberPagesRead
         )
+
         FirebaseDatabase.getInstance().getReference(firebaseReferenceNode)
             .child(userId)
             .child(bookId)
@@ -92,7 +114,7 @@ class EditBookActivity : AppCompatActivity() {
                 if(it.isSuccessful){
                     Toast.makeText(
                         this,
-                        "Livro salvo com sucesso",
+                        getText(R.string.success_save),
                         Toast.LENGTH_SHORT
                     ).show()
                     val returnIntent = Intent()
@@ -102,7 +124,7 @@ class EditBookActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(
                         this,
-                        "Erro ao salvar o livro",
+                        getText(R.string.fail_save),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -118,7 +140,7 @@ class EditBookActivity : AppCompatActivity() {
                 if(it.isSuccessful){
                     Toast.makeText(
                         this,
-                        "Livro removido com sucesso",
+                        getText(R.string.success_delete),
                         Toast.LENGTH_SHORT
                     ).show()
                     val returnIntent = Intent()
@@ -127,7 +149,7 @@ class EditBookActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(
                         this,
-                        "Erro ao remover o livro",
+                        getText(R.string.fail_delete),
                         Toast.LENGTH_SHORT
                     ).show()
                 }

@@ -2,7 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    style="@style/PersonaLayout">
+
+    <TextView
+        android:id="@+id/mainTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new_book_title"
+        style="@style/Title"/>
 
     <include layout="@layout/book_form" />
 
@@ -10,7 +18,7 @@
         android:id="@+id/btnCreate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        style="@style/Buttons"
         android:text="@string/btn_save_form"
         />
 

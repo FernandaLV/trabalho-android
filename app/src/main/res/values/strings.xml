@@ -30,5 +30,15 @@
     <string name="developerName">Desenvolvido por: Fernanda Lembo Vedovello</string>
     <string name="version">Versão: 1.0</string>
 
+    <string name="main_title">Listagem</string>
+    <string name="about_title">Sobre</string>
+    <string name="new_book_title">Adicionar novo livro</string>
+    <string name="edit_book_title">Editar livro</string>
+
+    <string name="input_empty">Campo obrigatório</string>
+    <string name="success_save">Salvo com sucesso</string>
+    <string name="fail_save">Erro ao salvar</string>
+    <string name="success_delete">Deletado com sucesso</string>
+    <string name="fail_delete">Erro ao deletar</string>
 
 </resources>

@@ -8,6 +8,7 @@
 
     <EditText
         android:id="@+id/inputTitle"
+        style="@style/Inputs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/label_book_title"
@@ -17,6 +18,7 @@
 
     <EditText
         android:id="@+id/inputAuthor"
+        style="@style/Inputs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/label_author_name"
@@ -26,6 +28,7 @@
 
     <EditText
         android:id="@+id/inputNumberPages"
+        style="@style/Inputs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -35,6 +38,7 @@
 
     <EditText
         android:id="@+id/inputNumberPagesRead"
+        style="@style/Inputs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"

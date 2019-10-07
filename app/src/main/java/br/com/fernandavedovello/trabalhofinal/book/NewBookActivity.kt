@@ -3,6 +3,7 @@ package br.com.fernandavedovello.trabalhofinal.book
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.widget.Toast
 import br.com.fernandavedovello.trabalhofinal.R
 import br.com.fernandavedovello.trabalhofinal.model.Book
@@ -23,17 +24,38 @@ class NewBookActivity : AppCompatActivity() {
         myAuth = FirebaseAuth.getInstance()
 
         btnCreate.setOnClickListener {
-            saveInRealTimeDatabase()
+            val strUserName = inputTitle.text.toString()
+            if (TextUtils.isEmpty(strUserName)) {
+                inputTitle.error = getString(R.string.input_empty)
+            }
+            else {
+                saveInRealTimeDatabase()
+            }
+
         }
 
     }
 
     private fun saveInRealTimeDatabase(){
+
+        val strNumberPages = inputNumberPages.text.toString()
+        val strNumberPagesRead = inputNumberPagesRead.text.toString()
+
+        val intNumberPages = when (TextUtils.isEmpty(strNumberPages)) {
+            true -> 0
+            false -> Integer.parseInt(strNumberPages)
+        }
+
+        val intNumberPagesRead = when (TextUtils.isEmpty(strNumberPagesRead)) {
+            true -> 0
+            false -> Integer.parseInt(strNumberPagesRead)
+        }
+
         val book = Book(
             inputTitle.text.toString(),
             inputAuthor.text.toString(),
-            Integer.parseInt(inputNumberPages.text.toString()),
-            Integer.parseInt(inputNumberPagesRead.text.toString())
+            intNumberPages,
+            intNumberPagesRead
         )
 
         FirebaseDatabase.getInstance().getReference("Books")
@@ -44,7 +66,7 @@ class NewBookActivity : AppCompatActivity() {
                 if(it.isSuccessful){
                     Toast.makeText(
                         this,
-                        "Livro salvo com sucesso",
+                        getText(R.string.success_save),
                         Toast.LENGTH_SHORT
                     ).show()
                     val returnIntent = Intent()
@@ -54,7 +76,7 @@ class NewBookActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(
                         this,
-                        "Erro ao salvar o livro",
+                        getText(R.string.fail_save),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
