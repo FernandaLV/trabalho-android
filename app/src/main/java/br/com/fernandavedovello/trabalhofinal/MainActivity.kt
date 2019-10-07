@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         this.ref = FirebaseDatabase.getInstance().getReference("Books")
             .child(FirebaseAuth.getInstance().currentUser!!.uid)
-        this.mrecylerview = findViewById<RecyclerView>(R.id.reyclerview)
+        this.mrecylerview = findViewById(R.id.reyclerview)
 
         this.mrecylerview.layoutManager = LinearLayoutManager(this)
 
@@ -124,7 +124,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClickBookItem(view: View){
-        val teste = view.bookTitle.text.toString()
         val intent = Intent(this@MainActivity, EditBookActivity::class.java)
             .putExtra("bookId", view.bookId.text.toString())
         startActivityForResult(intent, editBookActivityRequestCode)
