@@ -22,8 +22,7 @@ class SplashActivity : AppCompatActivity() {
         val preferences = getSharedPreferences("user_preference", Context.MODE_PRIVATE)
         val isFirstOpen = preferences.getBoolean("open_first", true)
 
-        //if(isFirstOpen){
-        if(true){
+        if(isFirstOpen){
             markAppAlreadyOpen(preferences)
             showSplash()
         }
@@ -38,7 +37,7 @@ class SplashActivity : AppCompatActivity() {
         editor?.apply()
     }
 
-    fun showLogin(){
+    private fun showLogin(){
         val nextScreen = Intent(this@SplashActivity, LoginActivity::class.java)
         startActivity(nextScreen)
         finish()

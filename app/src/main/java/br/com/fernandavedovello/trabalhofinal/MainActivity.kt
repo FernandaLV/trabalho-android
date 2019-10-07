@@ -62,7 +62,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AboutActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
-            finish()
 
             true
         }
@@ -112,8 +111,9 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     override fun onDataChange(p0: DataSnapshot) {
-                        holder.title.setText(model.title)
-                        holder.id.setText(placeid)
+                        holder.title.text = model.title
+                        holder.id.text = placeid
+
                     }
                 })
             }

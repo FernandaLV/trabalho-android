@@ -9,7 +9,6 @@ import br.com.fernandavedovello.trabalhofinal.R
 import br.com.fernandavedovello.trabalhofinal.model.Book
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_new_book.*
 import kotlinx.android.synthetic.main.activity_new_user.btnCreate
 import kotlinx.android.synthetic.main.book_form.*
 
