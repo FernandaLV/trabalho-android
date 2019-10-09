@@ -29,7 +29,7 @@
     <string name="btn_edit_form">Atualizar</string>
     <string name="btn_delete">Deletar</string>
 
-    <string name="developerName">Desenvolvido por: Fernanda Lembo Vedovello</string>
+    <string name="developerName">Desenvolvido por:\nFernanda Lembo Vedovello</string>
     <string name="version">Versão: 1.0</string>
 
     <string name="main_title">Listagem</string>
