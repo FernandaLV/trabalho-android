@@ -9,6 +9,13 @@
     android:paddingRight="16dp"
     tools:context=".login.LoginActivity">
 
+    <TextView
+        android:id="@+id/mainTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login_title"
+        style="@style/Title"/>
+
     <EditText
         android:id="@+id/inputUser"
         style="@style/Inputs"
