@@ -45,23 +45,6 @@ class MainActivity : AppCompatActivity() {
 
         this.mrecylerview.layoutManager = LinearLayoutManager(this)
 
-        /* Verificar se exite o filho Books/<user>
-         * Se não tiver, exibir mensagem para a pessoa cadastrar seu primeiro livro.
-          * https://stackoverflow.com/questions/37397205/google-firebase-check-if-child-exists
-        * */
-        this.ref.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            void onDataChange(DataSnapshot snapshot) {
-                val itemView = LayoutInflater.from(this@MainActivity)
-                if (snapshot.getValue() == null) {
-                itemView.textNoBook.setVisibility(View.VISIBLE);
-                }
-                else {
-                itemView.textNoBook.setVisibility(View.GONE);
-                }
-            }
-        });
-
         firebaseData()
 
     }
@@ -138,12 +121,30 @@ class MainActivity : AppCompatActivity() {
 
         this.mrecylerview.adapter = firebaseRecyclerAdapter
         firebaseRecyclerAdapter.startListening()
+
+        checkHasBooks()
     }
 
     fun onClickBookItem(view: View){
         val intent = Intent(this@MainActivity, EditBookActivity::class.java)
             .putExtra("bookId", view.bookId.text.toString())
         startActivityForResult(intent, editBookActivityRequestCode)
+    }
+
+    private fun checkHasBooks() {
+        val responseListener = object:ValueEventListener {
+            override fun onDataChange(dataSnapshot:DataSnapshot) {
+                if (dataSnapshot.hasChild(FirebaseAuth.getInstance().currentUser!!.uid)) {
+                    textNoBook.visibility = View.GONE
+                }
+                else {
+                    textNoBook.visibility = View.VISIBLE
+                }
+            }
+            override fun onCancelled(databaseError:DatabaseError) {
+            }
+        }
+        FirebaseDatabase.getInstance().getReference("Books").addValueEventListener(responseListener)
     }
 }
 
