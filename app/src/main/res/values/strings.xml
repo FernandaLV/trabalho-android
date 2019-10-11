@@ -3,8 +3,10 @@
     <string name="action_about">Sobre</string>
     <string name="action_list">Listagem</string>
     <string name="action_logout">Sair</string>
+    <string name="no_books">Bem-vindo(a)! Clique no botão '+' do canto inferior direito para adicionar seu primeiro livro!</string>
 
-    <string name="label_login">Login</string>
+    <string name="login_title">Login</string>
+    <string name="label_login">Entrar</string>
     <string name="label_user">Usuário</string>
     <string name="label_password">Senha</string>
     <string name="btn_login">Entrar</string>
@@ -27,7 +29,7 @@
     <string name="btn_edit_form">Atualizar</string>
     <string name="btn_delete">Deletar</string>
 
-    <string name="developerName">Desenvolvido por: Fernanda Lembo Vedovello</string>
+    <string name="developerName">Desenvolvido por:\nFernanda Lembo Vedovello</string>
     <string name="version">Versão: 1.0</string>
 
     <string name="main_title">Listagem</string>

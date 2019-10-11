@@ -45,6 +45,23 @@ class MainActivity : AppCompatActivity() {
 
         this.mrecylerview.layoutManager = LinearLayoutManager(this)
 
+        /* Verificar se exite o filho Books/<user>
+         * Se não tiver, exibir mensagem para a pessoa cadastrar seu primeiro livro.
+          * https://stackoverflow.com/questions/37397205/google-firebase-check-if-child-exists
+        * */
+        this.ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            void onDataChange(DataSnapshot snapshot) {
+                val itemView = LayoutInflater.from(this@MainActivity)
+                if (snapshot.getValue() == null) {
+                itemView.textNoBook.setVisibility(View.VISIBLE);
+                }
+                else {
+                itemView.textNoBook.setVisibility(View.GONE);
+                }
+            }
+        });
+
         firebaseData()
 
     }
