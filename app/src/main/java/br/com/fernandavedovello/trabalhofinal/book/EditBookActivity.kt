@@ -1,10 +1,10 @@
-    package br.com.fernandavedovello.trabalhofinal.book
+package br.com.fernandavedovello.trabalhofinal.book
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Toast
+import br.com.fernandavedovello.trabalhofinal.AppMenu
 import br.com.fernandavedovello.trabalhofinal.R
 import br.com.fernandavedovello.trabalhofinal.model.Book
 import com.google.firebase.FirebaseApp
@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_edit_book.*
 import kotlinx.android.synthetic.main.book_form.*
 
 
-class EditBookActivity : AppCompatActivity() {
+class EditBookActivity : AppMenu() {
 
     private lateinit var myAuth: FirebaseAuth
     private lateinit var userId: String
