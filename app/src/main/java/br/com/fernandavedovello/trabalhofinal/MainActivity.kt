@@ -31,6 +31,8 @@ class MainActivity : AppMenu() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        textNoBook.visibility = View.GONE
+
         fab.setOnClickListener {
             val intent = Intent(this@MainActivity, NewBookActivity::class.java)
             startActivityForResult(intent, newBookActivityRequestCode)
@@ -43,6 +45,8 @@ class MainActivity : AppMenu() {
         this.mrecylerview.layoutManager = LinearLayoutManager(this)
 
         firebaseData()
+
+        checkHasBooks()
 
     }
 
@@ -86,8 +90,6 @@ class MainActivity : AppMenu() {
 
         this.mrecylerview.adapter = firebaseRecyclerAdapter
         firebaseRecyclerAdapter.startListening()
-
-        checkHasBooks()
     }
 
     fun onClickBookItem(view: View){
